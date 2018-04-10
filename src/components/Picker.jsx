@@ -15,8 +15,13 @@ export default class Picker extends React.Component {
     const {avatars, selected} = this.state;
     return(
       <div className="container">
+        <div className="displayed">
         <Avatar avatar={avatars[selected]}/>
-        <Popover/>
+        </div>
+        <Popover
+          avatars={avatars}
+          selected={selected}
+        />
       </div>
     );
   }
