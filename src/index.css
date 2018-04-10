@@ -1,0 +1,68 @@
+:root {
+  --blue: rgb(122, 161, 178);
+  --gray: rgb(155, 160, 163);
+  --black: rgb(44, 48, 51);
+  --shadow: rgb(102, 102, 102);
+  --white: rgb(249, 249, 249);
+  --av-size: 60px;
+
+}
+body {
+  margin: 0;
+  padding: 0;
+  font: 16px "Source Sans Pro", sans-serif;
+  background-color: var(--white);
+}
+span {
+  color: var(--white);
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.overlay {
+  background: var(--blue);
+  opacity: .2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.pop-box {
+  width: 280px;
+  border-radius: 2px;
+  background: var(--black);
+  padding: 14px;
+  box-shadow: 2px 2px 10px var(--shadow);
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--black);
+  z-index:1
+}
+
+.loading {
+  border-color: clear;
+}
+
+.avatar {
+  width: var(--av-size);
+  height: var(--av-size);
+  border-radius: 50%;
+  background: pink;
+  border: 1px solid var(--white);
+}
+
+.avatar:hover, .avatar:focus {
+  border: 1px solid var(--gray);
+}
+
+li>.avatar:hover {
+  border: 3px;
+
+}
