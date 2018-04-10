@@ -5,6 +5,7 @@
   --shadow: rgb(102, 102, 102);
   --white: rgb(249, 249, 249);
   --av-size: 60px;
+  --offset: -65px;
 
 }
 body {
@@ -13,7 +14,7 @@ body {
   color: var(--white);
 }
 span {
-  margin: 7px;
+  margin: 14px;
 }
 .container {
   display: flex;
@@ -26,8 +27,8 @@ span {
   width: 300px;
   border-radius: 2px;
   background: var(--black);
-  padding: 14px;
   box-shadow: 2px 2px 10px var(--shadow);
+  padding: 7px;
 }
 .triangle {
   width: 0;
@@ -57,7 +58,6 @@ span {
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
-  margin-left: 10px;
 }
 .circle {
   width: var(--av-size);
@@ -69,27 +69,26 @@ span {
   position: relative;
   background: var(--blue);
   opacity: 0;
-  top: -67.5px;
-  left: 3px;
+  top: var(--offset);
 }
-.avatar {
-  border: 1px solid var(--white);
+.selected {
+  border: 3px solid var(--blue);
+}
+.displayed {
+  border: 1px solid transparent;
 }
 
-.avatar:hover, .avatar:focus {
+.displayed:hover, .displayed:focus {
   border: 1px solid var(--gray);
 }
 
 li {
   list-style: none;
-  margin: 7px 14px 7px 0px;
-}
-
-li>.avatar {
   border: 3px solid transparent;
+  margin: 0px 0px 7px 7px;
 }
 
-li:hover .avatar{
+li:hover{
   border: 3px solid var(--gray);
 }
 li:hover .overlay{
