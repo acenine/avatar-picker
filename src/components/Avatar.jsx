@@ -5,7 +5,7 @@ export default class Avatar extends React.Component {
     const {avatar} = this.props;
     var imgUrl = require(`../../img/${avatar.src}`)
     return(
-      <img className="avatar" src={imgUrl} alt={avatar.label}/>
+      <img className="circle avatar" src={imgUrl} alt={avatar.label}/>
     );
   }
 }

@@ -8,12 +8,12 @@ export default class Collection extends React.Component {
         <ul className="container collection">
           {avatars.map((avatar, index) => {
             return (
-              <li key={avatar.id}>
+              <li className="circle" key={avatar.id}>
                 <Avatar
                   avatar={avatar}
                   index={index}
                 />
-                <div className="overlay"></div>
+                <div className="overlay circle"></div>
               </li>
             );
           })}
