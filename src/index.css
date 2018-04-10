@@ -54,7 +54,6 @@ span {
   width: var(--av-size);
   height: var(--av-size);
   border-radius: 50%;
-  background: pink;
   border: 1px solid var(--white);
 }
 
