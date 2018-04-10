@@ -7,22 +7,29 @@ export default class Picker extends React.Component {
     super(props);
     this.state = {
       avatars: this.props.avatars,
-      current: 0,
+      displayed: 0,
     };
   }
 
   render() {
-    const {avatars, current} = this.state;
+    const {avatars, displayed} = this.state;
     return(
       <div className="container">
-        <div className="displayed circle">
-        <Avatar avatar={avatars[current]}/>
+        <div className="displayed avatar">
+        <Avatar avatar={avatars[displayed]}/>
         </div>
         <Popover
           avatars={avatars}
-          current={current}
+          displayed={displayed}
+          updateDisplayed={this.updateDisplayed.bind(this)}
         />
       </div>
     );
+  }
+
+  updateDisplayed(i) {
+    this.setState({
+      displayed: i,
+    })
   }
 }
