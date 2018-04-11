@@ -2,10 +2,14 @@ import React from 'react';
 
 export default class Avatar extends React.Component {
   render() {
-    const {avatar, index, updateDisplayed} = this.props;
+    const {avatar} = this.props;
     var imgUrl = require(`../../img/${avatar.src}`)
     return(
-      <img className={`avatar`} src={imgUrl} alt={avatar.label} />
+        <img
+          className={`avatar`}
+          src={imgUrl}
+          alt={avatar.label}
+        />
     );
   }
 }

@@ -5,7 +5,7 @@
   --shadow: rgb(102, 102, 102);
   --white: rgb(249, 249, 249);
   --av-size: 60px;
-  --offset: -65px;
+  --offset: -67.5px;
 
 }
 body {
@@ -39,11 +39,6 @@ span {
   z-index:1
 }
 
-.loading {
-  border-color: var(--blue);
-  border-bottom: transparent;
-  animation: spin 1s linear 1s;
-}
 
 @keyframes spin {
   0% {
@@ -68,9 +63,9 @@ span {
 
 .overlay {
   position: relative;
-  background: var(--blue);
-  opacity: 0;
   top: var(--offset);
+  left: -3px;
+  border: 3px solid transparent;
 }
 .selected {
   border: 3px solid var(--blue);
@@ -89,9 +84,16 @@ li {
   margin: 0px 0px 7px 7px;
 }
 
-li:hover{
-  border: 3px solid var(--gray);
-}
 li:hover .overlay{
-  opacity: .2;
+  border: 3px solid var(--gray);
+  background-color: rgb(122, 161, 178, .2)
+}
+
+
+#loading, #loading:hover{
+  border: 3px solid var(--blue);
+  border-bottom: 3px solid transparent;
+  background-color: transparent;
+  animation: spin 1s linear infinite;
+  opacity: 1;
 }
