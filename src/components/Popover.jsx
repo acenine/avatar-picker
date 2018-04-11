@@ -3,9 +3,9 @@ import Collection from './Collection.jsx'
 
 export default class Popover extends React.Component {
   render() {
-    const {avatars, displayed, updateDisplayed, isLoading} = this.props;
+    const {avatars, displayed, updateDisplayed, isLoading, action} = this.props;
     return(
-      <div className="container">
+      <div className={`container ${action}`}>
         <div className="triangle"></div>
         <div className="pop-box container">
           <span> Choose your avatar </span>

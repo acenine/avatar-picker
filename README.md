@@ -1,4 +1,4 @@
 Colony [coding challenge](https://github.com/JoinColony/coding-challenge).
 
 
-Check it out [here](https://acenine.github.io/avatar-picker).
+Check out [my code in action](https://acenine.github.io/avatar-picker).
