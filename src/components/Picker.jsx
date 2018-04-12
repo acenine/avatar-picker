@@ -18,8 +18,10 @@ export default class Picker extends React.Component {
     return(
       <div className={`container`}>
         <div
+          tabIndex="0"
           className={`displayed avatar`}
           onClick={() => this.openPopover()}
+          onKeyDown={(event) => {event.keyCode === 13 && this.openPopover()}}
         >
           <Avatar avatar={avatars[displayed]}/>
         </div>
