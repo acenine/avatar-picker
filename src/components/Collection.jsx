@@ -12,7 +12,11 @@ export default class Collection extends React.Component {
             <li
               className={`${selected} avatar`}
               key={avatar.id}
-              onClick={() => {updateDisplayed(index)}}
+              onClick={() => {
+                if (selected === '') {
+                  updateDisplayed(index);
+                }
+              }}
             >
               <Avatar
                 avatar={avatar}

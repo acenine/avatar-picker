@@ -1,7 +1,8 @@
 import React from 'react';
 import Collection from './Collection.jsx';
+import onClickOutside from 'react-onclickoutside';
 
-export default class Popover extends React.Component {
+class Popover extends React.Component {
   render() {
     const {avatars, displayed, updateDisplayed, isLoading, action} = this.props;
     return(
@@ -19,7 +20,8 @@ export default class Popover extends React.Component {
       </div>
     );
   }
-  handleClickOutside(event){
+  handleClickOutside = event => {
     this.props.closeFn();
   };
 }
+export default onClickOutside(Popover);

@@ -62,7 +62,6 @@ on closing, it simply needs to shrink and fade. perhaps i'll do that one first*/
     transform: scale(1);
   }
 }
-
 .close {
   animation: blip 0.2s forwards;
 }
@@ -84,6 +83,9 @@ on closing, it simply needs to shrink and fade. perhaps i'll do that one first*/
   }
 }
 
+.closed {
+  display: none;
+}
 /* ----------------- */
 
 

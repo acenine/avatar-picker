@@ -1,9 +1,6 @@
 import React from 'react';
 import Avatar from './Avatar.jsx';
 import Popover from './Popover.jsx';
-import onClickOutside from 'react-onclickoutside';
-
-const NewPopover = onClickOutside(Popover);
 
 export default class Picker extends React.Component {
   constructor(props) {
@@ -12,18 +9,19 @@ export default class Picker extends React.Component {
       avatars: this.props.avatars,
       displayed: 0,
       isLoading: -1,
-      popoverState: 'close',
+      popoverState: 'closed',
     };
   }
 
-  render() {
+  render(event) {
     const {avatars, displayed, isLoading, popoverState} = this.state;
     return(
       <div className="container">
-        <div className="displayed avatar" onClick={this.openPopover.bind(this)}>
+        <div className="displayed avatar" onClick={() => this.openPopover()}>
           <Avatar avatar={avatars[displayed]}/>
         </div>
-          <NewPopover
+          <Popover
+            outsideClickIgnoreClass={'displayed'}
             action={popoverState}
             avatars={avatars}
             displayed={displayed}
@@ -36,6 +34,9 @@ export default class Picker extends React.Component {
   }
 
   openPopover() {
+    if (this.state.popoverState === 'open') {
+      return;
+    }
     this.setState({
       popoverState: 'open',
     });
