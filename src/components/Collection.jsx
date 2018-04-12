@@ -10,11 +10,13 @@ export default class Collection extends React.Component {
           return (
             <li
               tabIndex="-1"
+              role="button"
+              aria-label={`Select ${avatar.label}`}
               className={`${index === displayed ? 'selected': ''} avatar`}
               key={avatar.id}
               index={index}
               onClick={() => {this.selectItem(index)}}
-              onKeyDown={(event) => {event.keyCode === 13 && this.selectItem(index)}}
+              onKeyDown={(event) => {this.keyboardSelectItem(event, index)}}
             >
               <Avatar
                 avatar={avatar}
@@ -22,7 +24,8 @@ export default class Collection extends React.Component {
               />
               <div
                 className={`avatar overlay`}
-                id={isLoading === index ? 'loading' : ''}></div>
+                id={isLoading === index ? 'loading' : ''}>
+              </div>
             </li>
           );
         })}
@@ -34,6 +37,12 @@ export default class Collection extends React.Component {
     const {displayed, isLoading, updateDisplayed} = this.props;
     if (i !== displayed && isLoading === -1) {
       updateDisplayed(i);
+    }
+  }
+  keyboardSelectItem(e, i) {
+    const keyCode = e.keyCode;
+    if (keyCode === 13 || keyCode === 32) {
+      this.selectItem(i);
     }
   }
 }

@@ -19,9 +19,11 @@ export default class Picker extends React.Component {
       <div className={`container`}>
         <div
           tabIndex="0"
+          role="button"
+          aria-label="Open avatar picker"
           className={`displayed avatar container`}
           onClick={() => this.openPopover()}
-          onKeyDown={(event) => {event.keyCode === 13 && this.openPopover()}}
+          onKeyDown={(event) => {(event.keyCode === 13 || event.keyCode === 32) && this.openPopover()}}
         >
           <Avatar avatar={avatars[displayed]}/>
         </div>
