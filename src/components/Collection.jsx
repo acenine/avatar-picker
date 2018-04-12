@@ -13,7 +13,7 @@ export default class Collection extends React.Component {
               className={`${selected} avatar`}
               key={avatar.id}
               onClick={() => {
-                if (selected !== 'selected') {
+                if (selected !== 'selected' && isLoading === -1) {
                   updateDisplayed(index);
                 }
               }}
