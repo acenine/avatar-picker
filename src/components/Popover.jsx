@@ -7,8 +7,8 @@ class Popover extends React.Component {
     const {avatars, displayed, updateDisplayed, isLoading, action} = this.props;
     return(
       <div className={`container ${action}`}>
-        <div className="triangle"></div>
-        <div className="pop-box container">
+        <div className={`triangle`}></div>
+        <div className={`pop-box container`}>
           <span> Choose your avatar </span>
           <Collection
             avatars={avatars}
@@ -20,7 +20,7 @@ class Popover extends React.Component {
       </div>
     );
   }
-  handleClickOutside = event => {
+  handleClickOutside(event){
     this.props.closeFn();
   };
 }

@@ -16,12 +16,15 @@ export default class Picker extends React.Component {
   render(event) {
     const {avatars, displayed, isLoading, popoverState} = this.state;
     return(
-      <div className="container">
-        <div className="displayed avatar" onClick={() => this.openPopover()}>
+      <div className={`container`}>
+        <div
+          className={`displayed avatar`}
+          onClick={() => this.openPopover()}
+        >
           <Avatar avatar={avatars[displayed]}/>
         </div>
           <Popover
-            outsideClickIgnoreClass={'displayed'}
+            outsideClickIgnoreClass={`displayed`}
             action={popoverState}
             avatars={avatars}
             displayed={displayed}
@@ -34,9 +37,6 @@ export default class Picker extends React.Component {
   }
 
   openPopover() {
-    if (this.state.popoverState === 'open') {
-      return;
-    }
     this.setState({
       popoverState: 'open',
     });
@@ -53,20 +53,11 @@ export default class Picker extends React.Component {
       isLoading: i,
     })
     setTimeout(() => {
+      this.closePopover();
       this.setState({
         isLoading: -1,
         displayed: i,
       })
-      this.closePopover();
     }, 1000)
   }
 }
-// popover starts off hidden
-//         when the avatar is clicked, the popover pops over
-//           expands from center, overbounces and stays
-//             a click outside will close it
-//             a selection will close it
-//           closes by shrinking away
-
-
-// ok the idea is that when a pic is clicked that takes the information to another function that sets an isloading property and a 1 second timeout that will then turn the isloading to false and set the new selection and reset the popover

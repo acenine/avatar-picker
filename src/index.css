@@ -40,8 +40,6 @@ span {
 }
 /* Animations stuffs */
 
-/*for open i want it to fade in and grow simulataneously to perhaps bigger than full size then quick small scale down to display size
-on closing, it simply needs to shrink and fade. perhaps i'll do that one first*/
 .open{
   animation: overbounce 0.5s forwards;
 }
