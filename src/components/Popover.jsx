@@ -21,7 +21,10 @@ class Popover extends React.Component {
     );
   }
   handleClickOutside(event){
-    this.props.closeFn();
+    const {action, closeFn} = this.props;
+    if (action === 'open') {
+      closeFn();
+    }
   };
 }
 export default onClickOutside(Popover);
