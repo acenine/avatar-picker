@@ -1,5 +1,5 @@
 import React from 'react';
-import Collection from './Collection.jsx'
+import Collection from './Collection.jsx';
 
 export default class Popover extends React.Component {
   render() {
@@ -19,4 +19,7 @@ export default class Popover extends React.Component {
       </div>
     );
   }
+  handleClickOutside(event){
+    this.props.closeFn();
+  };
 }
