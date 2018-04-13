@@ -1,0 +1,12 @@
+
+.displayed {
+  border: 1px solid transparent;
+}
+
+.displayed:hover, .displayed:focus {
+  border: 1px solid var(--gray);
+}
+.modal {
+  width: 300px;
+  margin: auto;
+}

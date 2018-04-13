@@ -1,11 +1,15 @@
 import React from 'react';
 import Avatar from './Avatar.jsx';
+import '../css/Collection.css';
 
 export default class Collection extends React.Component {
   render() {
     const {avatars, displayed, isLoading} = this.props;
     return(
-      <ul tabIndex="-1" aria-label={`Avatar selection`} className={`container collection`}>
+      <ul tabIndex="-1"
+        aria-label={`Avatar selection`}
+        className={`container collection`}
+      >
         {avatars.map((avatar, index) => {
           return (
             <li
@@ -13,9 +17,9 @@ export default class Collection extends React.Component {
               role="button"
               aria-label={`Select ${avatar.label}`}
               aria-labelledby={`${avatar.label}`}
-              className={`${index === displayed ? 'selected': ''} avatar`}
               key={avatar.id}
               index={index}
+              className={`${index === displayed ? 'selected': ''} avatar`}
               onClick={() => {this.selectItem(index)}}
               onKeyDown={(event) => {this.keyboardSelectItem(event, index)}}
             >

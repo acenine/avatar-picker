@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/Avatar.css';
 
 export default class Avatar extends React.Component {
   render() {

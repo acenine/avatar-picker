@@ -1,0 +1,7 @@
+
+.avatar {
+  width: var(--av-size);
+  height: var(--av-size);
+  border-radius: 50%;
+  cursor: pointer;
+}

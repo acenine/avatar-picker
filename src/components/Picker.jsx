@@ -2,6 +2,7 @@ import React from 'react';
 import Avatar from './Avatar.jsx';
 import Popover from './Popover.jsx';
 import AriaModal from 'react-aria-modal';
+import '../css/Picker.css';
 
 export default class Picker extends React.Component {
   constructor(props) {
@@ -32,23 +33,23 @@ export default class Picker extends React.Component {
 
         {popoverState === 'open' &&
           <AriaModal
-                  titleText="Choose your avatar"
-                  onExit={this.closePopover.bind(this)}
-                  underlayClickExits={true}
-                  includeDefaultStyles={false}
-                  focusDialog={true}
-                  dialogClass={'modal'}
-                >
-                  <Popover
-                    outsideClickIgnoreClass={`displayed`}
-                    action={popoverState}
-                    avatars={avatars}
-                    displayed={displayed}
-                    isLoading={isLoading}
-                    updateDisplayed={this.fakeHttpRequest.bind(this)}
-                    closeFn={this.closePopover.bind(this)}
-                  />
-                </AriaModal>}
+            titleText="Choose your avatar"
+            onExit={this.closePopover.bind(this)}
+            underlayClickExits={true}
+            includeDefaultStyles={false}
+            focusDialog={true}
+            dialogClass={'modal'}
+          >
+            <Popover
+              outsideClickIgnoreClass={`displayed`}
+              action={popoverState}
+              avatars={avatars}
+              displayed={displayed}
+              isLoading={isLoading}
+              updateDisplayed={this.fakeHttpRequest.bind(this)}
+              closeFn={this.closePopover.bind(this)}
+            />
+          </AriaModal>}
       </div>
     );
   }

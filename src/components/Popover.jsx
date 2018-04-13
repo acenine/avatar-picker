@@ -1,6 +1,7 @@
 import React from 'react';
 import Collection from './Collection.jsx';
 import onClickOutside from 'react-onclickoutside';
+import '../css/Popover.css';
 
 class Popover extends React.Component {
   render() {
