@@ -20,11 +20,11 @@ export default class Picker extends React.Component {
     return(
       <div className={`container`}>
         <div
-          tabIndex="0"
-          role="button"
-          aria-label="Open avatar picker"
-          ref={(displayed) => this.displayed = displayed}
           className={`displayed avatar container`}
+          ref={(displayed) => this.displayed = displayed}
+          aria-label='Open avatar picker'
+          role='button'
+          tabIndex='0'
           onClick={() => this.openPopover()}
           onKeyDown={(event) => {this.keyboardSelect(event)}}
         >
@@ -33,21 +33,21 @@ export default class Picker extends React.Component {
 
         {popoverState === 'open' &&
           <AriaModal
-            titleText="Choose your avatar"
-            onExit={this.closePopover.bind(this)}
+            titleId='pop-title'
+            focusDialog={true}
+            dialogClass={`modal`}
             underlayClickExits={true}
             includeDefaultStyles={false}
-            focusDialog={true}
-            dialogClass={'modal'}
+            onExit={this.closePopover.bind(this)}
           >
             <Popover
-              outsideClickIgnoreClass={`displayed`}
-              action={popoverState}
               avatars={avatars}
               displayed={displayed}
               isLoading={isLoading}
-              updateDisplayed={this.fakeHttpRequest.bind(this)}
+              action={popoverState}
+              outsideClickIgnoreClass={`displayed`}
               closeFn={this.closePopover.bind(this)}
+              updateDisplayed={this.fakeHttpRequest.bind(this)}
             />
           </AriaModal>}
       </div>

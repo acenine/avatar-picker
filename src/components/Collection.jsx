@@ -6,26 +6,27 @@ export default class Collection extends React.Component {
   render() {
     const {avatars, displayed, isLoading} = this.props;
     return(
-      <ul tabIndex="-1"
-        aria-label={`Avatar selection`}
+      <ul
         className={`container collection`}
+        aria-label={`Avatar selection`}
+        tabIndex='-1'
       >
         {avatars.map((avatar, index) => {
           return (
             <li
-              tabIndex="0"
-              role="button"
+              className={`${index === displayed ? 'selected': ''} avatar`}
               aria-label={`Select ${avatar.label}`}
               aria-labelledby={`${avatar.label}`}
-              key={avatar.id}
+              tabIndex='0'
+              role='button'
               index={index}
-              className={`${index === displayed ? 'selected': ''} avatar`}
+              key={avatar.id}
               onClick={() => {this.selectItem(index)}}
               onKeyDown={(event) => {this.keyboardSelectItem(event, index)}}
             >
               <Avatar
-                avatar={avatar}
                 index={index}
+                avatar={avatar}
               />
               <div
                 className={`avatar overlay`}
