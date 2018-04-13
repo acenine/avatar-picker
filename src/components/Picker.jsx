@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from './Avatar.jsx';
 import Popover from './Popover.jsx';
+import AriaModal from 'react-aria-modal';
 
 export default class Picker extends React.Component {
   constructor(props) {
@@ -21,21 +22,33 @@ export default class Picker extends React.Component {
           tabIndex="0"
           role="button"
           aria-label="Open avatar picker"
+          ref={(displayed) => this.displayed = displayed}
           className={`displayed avatar container`}
           onClick={() => this.openPopover()}
-          onKeyDown={(event) => {(event.keyCode === 13 || event.keyCode === 32) && this.openPopover()}}
+          onKeyDown={(event) => {this.keyboardSelect(event)}}
         >
           <Avatar avatar={avatars[displayed]}/>
         </div>
-          <Popover
-            outsideClickIgnoreClass={`displayed`}
-            action={popoverState}
-            avatars={avatars}
-            displayed={displayed}
-            isLoading={isLoading}
-            updateDisplayed={this.fakeHttpRequest.bind(this)}
-            closeFn={this.closePopover.bind(this)}
-          />
+
+        {popoverState === 'open' &&
+          <AriaModal
+                  titleText="Choose your avatar"
+                  onExit={this.closePopover.bind(this)}
+                  underlayClickExits={true}
+                  includeDefaultStyles={false}
+                  focusDialog={true}
+                  dialogClass={'modal'}
+                >
+                  <Popover
+                    outsideClickIgnoreClass={`displayed`}
+                    action={popoverState}
+                    avatars={avatars}
+                    displayed={displayed}
+                    isLoading={isLoading}
+                    updateDisplayed={this.fakeHttpRequest.bind(this)}
+                    closeFn={this.closePopover.bind(this)}
+                  />
+                </AriaModal>}
       </div>
     );
   }
@@ -47,9 +60,17 @@ export default class Picker extends React.Component {
   }
 
   closePopover() {
+    this.displayed.focus();
     this.setState({
       popoverState: 'close',
     });
+  }
+
+  keyboardSelect(e) {
+    const keyCode = e.keyCode
+    if (keyCode === 13 || keyCode === 32){
+      this.openPopover();
+    }
   }
 
   fakeHttpRequest(i) {

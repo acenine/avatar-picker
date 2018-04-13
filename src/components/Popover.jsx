@@ -9,7 +9,7 @@ class Popover extends React.Component {
       <div className={`container ${action}`}>
         <div className={`triangle`}></div>
         <div className={`pop-box container`}>
-          <span> Choose your avatar </span>
+          <span id={`pop-title`}> Choose your avatar </span>
           <Collection
             avatars={avatars}
             displayed={displayed}

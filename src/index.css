@@ -118,10 +118,18 @@ span {
 }
 
 /* Turn off default focus outlines */
-.displayed:focus, img:focus {
-  outline: none;
+.displayed:focus, img:focus, li:focus, ul:focus, .modal:focus {
+  outline: 0;
 }
 /* only after applying new outline feature */
+/*:focus {
+  outline: none;
+}*/
+
+.modal {
+  width: 300px;
+  margin: auto;
+}
 
 li {
   list-style: none;

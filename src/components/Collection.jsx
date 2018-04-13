@@ -5,13 +5,14 @@ export default class Collection extends React.Component {
   render() {
     const {avatars, displayed, isLoading} = this.props;
     return(
-      <ul tabIndex="0" className={`container collection`}>
+      <ul tabIndex="-1" aria-label={`Avatar selection`} className={`container collection`}>
         {avatars.map((avatar, index) => {
           return (
             <li
-              tabIndex="-1"
+              tabIndex="0"
               role="button"
               aria-label={`Select ${avatar.label}`}
+              aria-labelledby={`${avatar.label}`}
               className={`${index === displayed ? 'selected': ''} avatar`}
               key={avatar.id}
               index={index}
